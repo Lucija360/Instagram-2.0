@@ -7,5 +7,9 @@ module.exports = {
     extend: {},
   },
   plugins: 
-    require[require('@tailwindcss/forms')],
+    [
+      require('@tailwindcss/forms'), 
+      require("tailwind-scrollbar"),
+      require("tailwind-scrollbar-hide"),
+    ],
 };
