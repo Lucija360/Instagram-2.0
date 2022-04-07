@@ -18,5 +18,20 @@ export default NextAuth({
   },
   pages:{
       signIn: "/auth/signin",
+  },
+  callbacks: {
+    async session({session, token, user}) {
+
+      session.user.username = session.user.name
+      .split(' ')
+      .join('')
+      .toLocaleLowerCase();
+
+      // Lucija Karan (name attribute)
+      // lucijakaran (username)
+
+      session.user.uid = token.sub;
+      return session;
+    }
   }
 });
